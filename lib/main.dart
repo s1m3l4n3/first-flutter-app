@@ -15,11 +15,8 @@ class Home extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.red[600],
       ),
-      body: const Center(
-        child: Image(
-          image: AssetImage('images/pexels-photo-1366913.jpeg'),
-          // image: NetworkImage('https://images.pexels.com/photos/1723637/pexels-photo-1723637.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'),
-        ),
+      body: Center(
+        child: Image.asset('images/pexels-photo-1172849.jpeg'),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
