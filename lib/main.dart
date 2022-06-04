@@ -2,7 +2,14 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(MaterialApp(
-    home: Scaffold(
+    home: Home(),
+  ));
+}
+
+class Home extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
       appBar: AppBar(
         title: const Text('My Second App'),
         centerTitle: true,
@@ -12,11 +19,11 @@ void main() {
         child: Text(
           'hello ninjas!',
           style: TextStyle(
-            fontFamily: 'IndieFlower',
-            fontWeight: FontWeight.bold,
-            fontSize: 20.0,
-            letterSpacing: 2.0,
-            color: Colors.red[200]
+              fontFamily: 'IndieFlower',
+              fontWeight: FontWeight.bold,
+              fontSize: 20.0,
+              letterSpacing: 2.0,
+              color: Colors.red[200]
           ),
         ),
       ),
@@ -25,9 +32,10 @@ void main() {
         backgroundColor: Colors.red[600],
         child: const Text('click'),
       ),
-    )
-  ));
+    );
+  }
 }
+
 
 //  1. main method.
 //  2. runApp is the parent Widget that will run the app.
@@ -44,5 +52,4 @@ void main() {
 
 // 5. pubspec.yaml is the main dependencies file
 
-
-
+// 6. stless to add StatelessWidget
