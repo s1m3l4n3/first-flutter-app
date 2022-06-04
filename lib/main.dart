@@ -2,53 +2,112 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(MaterialApp(
-    home: Home(),
+    home: NinjaCard(),
   ));
 }
 
-class Home extends StatelessWidget {
+class NinjaCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[900],
       appBar: AppBar(
-        title: const Text('My Second App'),
+        title: const Text('Ninja ID Card'),
+        backgroundColor: Colors.grey[850],
         centerTitle: true,
-        backgroundColor: Colors.red[600],
+        elevation: 0.0,
       ),
-      body: Center(
-        child: ElevatedButton.icon(
-            onPressed: () {},
-            icon: const Icon(
-              Icons.mail
-            ),
-            label: const Text('mail me')
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        backgroundColor: Colors.red[600],
-        child: const Icon(
-          Icons.add
+      body: Padding(
+        padding: const EdgeInsets.fromLTRB(30.0, 40.0, 30.0, 0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            avatar(),
+            labelText('NAME'),
+            columnSpaceSmall(),
+            contentText('Chun-li'),
+            columnSpaceBig(),
+            labelText('CURRENT NINJA LEVEL'),
+            columnSpaceSmall(),
+            contentText('8'),
+            columnSpaceBig(),
+            emailText('chun.li@thenetninja.co.uk')
+          ],
         ),
       ),
     );
   }
+
+  Text labelText(String label) {
+    return Text(
+      label,
+      style: const TextStyle(
+          color: Colors.grey,
+          letterSpacing: 2.0
+      ),
+    );
+  }
+
+  Text contentText(String content) {
+    return Text(
+      content,
+      style: TextStyle(
+          color: Colors.amberAccent[200],
+          letterSpacing: 2.0,
+          fontSize: 28.0,
+          fontWeight: FontWeight.bold
+      ),
+    );
+  }
+
+  Row emailText(String email) {
+    return Row(
+      children: <Widget>[
+        Icon(
+          Icons.mail,
+          color: Colors.grey[400],
+        ),
+        rowSpace(),
+        Text(
+          email,
+          style: TextStyle(
+            color: Colors.grey[400],
+            fontSize: 18.0,
+            letterSpacing: 1.0,
+          ),
+        )
+      ],
+    );
+  }
+
+  Column avatar() {
+    return Column(
+      children: [
+        const Center(
+          child: CircleAvatar(
+            backgroundImage: AssetImage('images/simple.jpg'),
+            radius: 40.0,
+          ),
+        ),
+        Divider(
+          height: 90.0,
+          color: Colors.grey[700],
+          thickness: 1,
+        )
+      ],
+    );
+  }
+
+  SizedBox columnSpaceSmall() {
+    return const SizedBox(height: 10.0);
+  }
+
+  SizedBox columnSpaceBig() {
+    return const SizedBox(height: 30.0);
+  }
+
+  SizedBox rowSpace() {
+    return const SizedBox(width: 10.0);
+  }
 }
 
-
-//  1. main method.
-//  2. runApp is the parent Widget that will run the app.
-
-/*
- *  3. MaterialApp and Scaffold for the material look & feel.
- *  https://api.flutter.dev/flutter/material/Scaffold-class.html
- */
-
-/*
- *  4. have a look at material design colours.
- *  https://material.io/resources/color/#!/?view.left=0&view.right=0
- */
-
-// 5. pubspec.yaml is the main dependencies file
-
-// 6. stless to add StatelessWidget
